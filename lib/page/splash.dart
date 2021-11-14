@@ -28,17 +28,14 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    final size = MediaQuery.of(context).size;
+    return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-          child: Text(
-        'repoline',
-        style: TextStyle(
-            color: Colors.black87,
-            fontFamily: 'SpaceMono',
-            fontSize: 24,
-            fontWeight: FontWeight.bold),
-      )),
+          child: Image(
+              width: size.width / 2,
+              // ignore: prefer_const_constructors
+              image: AssetImage('assets/png/splash.png'))),
     );
   }
 }
