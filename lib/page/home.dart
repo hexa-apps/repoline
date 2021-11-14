@@ -22,21 +22,26 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
-            backgroundColor: Colors.deepPurple,
-            elevation: 0,
-            title: const Text('repoline'),
-            actions: [
-              IconButton(
-                onPressed: () {
-                  print('info');
-                },
-                icon: const Icon(
-                  Icons.info,
-                  color: Colors.white,
-                ),
-              )
-            ]),
+          elevation: 0,
+          centerTitle: true,
+          title: const Text(
+            'repoline',
+            style:
+                TextStyle(fontFamily: 'SpaceMono', fontWeight: FontWeight.bold),
+          ),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.info_outline,
+              ),
+            )
+          ],
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black87,
+        ),
         body: createBody(context));
   }
 
@@ -47,16 +52,20 @@ class _HomePageState extends State<HomePage> {
             title: Form(
           key: _formKey,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               TextFormField(
-                cursorColor: Colors.deepPurple,
+                // ignore: prefer_const_constructors
+                style: TextStyle(fontFamily: 'SpaceMono'),
+                cursorColor: Colors.black87,
                 controller: usernameController,
                 decoration: const InputDecoration(
+                    hintStyle: TextStyle(fontFamily: 'SpaceMono'),
                     focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.deepPurple)),
+                        borderSide: BorderSide(color: Colors.black87)),
                     hintText: 'enter username',
                     border: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.deepPurple))),
+                        borderSide: BorderSide(color: Colors.black87))),
                 validator: (String? value) {
                   return value == null || value.isEmpty
                       ? 'please enter username'
@@ -66,10 +75,11 @@ class _HomePageState extends State<HomePage> {
               Container(
                 padding: const EdgeInsets.only(top: 16),
                 child: ElevatedButton(
-                  style: ButtonStyle(
-                      elevation: MaterialStateProperty.all<double>(0),
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.deepPurple)),
+                  style: ElevatedButton.styleFrom(
+                      // ignore: prefer_const_constructors
+                      side: BorderSide(color: Colors.black87, width: 1),
+                      elevation: 0,
+                      primary: Colors.white),
                   onPressed: () async => {
                     if (_formKey.currentState!.validate())
                       {
@@ -80,7 +90,13 @@ class _HomePageState extends State<HomePage> {
                             .then((value) => usernameController.clear())
                       }
                   },
-                  child: const Text('get timeline'),
+                  child: const Text(
+                    'get timeline',
+                    style: TextStyle(
+                        color: Colors.black87,
+                        fontFamily: 'SpaceMono',
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
               )
             ],

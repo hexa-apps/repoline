@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 class TimelineIndicator extends StatelessWidget {
   const TimelineIndicator({
     Key? key,
+    required this.isFork,
   }) : super(key: key);
+
+  final bool isFork;
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +15,7 @@ class TimelineIndicator extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: Colors.white.withOpacity(0.7),
+            color: isFork ? Colors.purple : Colors.green,
           ),
         ),
         Positioned.fill(
@@ -22,9 +25,9 @@ class TimelineIndicator extends StatelessWidget {
               height: 30,
               width: 30,
               child: Icon(
-                Icons.circle,
+                isFork ? Icons.alt_route : Icons.code,
                 size: 20,
-                color: const Color(0xFF9E3773).withOpacity(0.7),
+                color: Colors.white,
               ),
             ),
           ),

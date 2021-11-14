@@ -17,6 +17,8 @@ List<RepoModel> parseRepos(List arguments) {
             int.parse(repo['id'].toString()),
             repo['name'],
             repo['html_url'],
+            repo['description'] ?? '',
+            repo['fork'],
             DateTime.parse(repo['created_at'].toString()),
             int.parse(repo['stargazers_count'].toString()),
             int.parse(repo['forks_count'].toString()),

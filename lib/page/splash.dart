@@ -29,12 +29,12 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: Colors.deepPurple,
+      backgroundColor: Colors.white,
       body: Center(
           child: Text(
         'repoline',
         style: TextStyle(
-            color: Colors.white,
+            color: Colors.black87,
             fontFamily: 'SpaceMono',
             fontSize: 24,
             fontWeight: FontWeight.bold),

@@ -2,6 +2,8 @@ class RepoModel {
   int _id;
   String _name;
   String _url;
+  String _description;
+  bool _fork;
   DateTime _createdAt;
   int _stargazersCount;
   int _forksCount;
@@ -12,6 +14,8 @@ class RepoModel {
       this._id,
       this._name,
       this._url,
+      this._description,
+      this._fork,
       this._createdAt,
       this._stargazersCount,
       this._forksCount,
@@ -23,6 +27,8 @@ class RepoModel {
       int.parse(json['id'].toString()),
       json['name'],
       json['html_url'],
+      json['description'] ? json['description'] : '',
+      json['fork'],
       DateTime.parse(json['created_at'].toString()),
       int.parse(json['stargazers_count'].toString()),
       int.parse(json['forks_count'].toString()),
@@ -34,6 +40,8 @@ class RepoModel {
   int get id => _id;
   String get name => _name;
   String get url => _url;
+  String get description => _description;
+  bool get fork => _fork;
   DateTime get createdAt => _createdAt;
   int get stargazersCount => _stargazersCount;
   int get forksCount => _forksCount;

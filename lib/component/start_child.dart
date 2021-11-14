@@ -18,11 +18,11 @@ class StartChild extends StatelessWidget {
         alignment: const Alignment(0.0, -0.50),
         child: Text(
           '${data.elementAt(index).createdAt.day}-${data.elementAt(index).createdAt.month}-${data.elementAt(index).createdAt.year}',
+          // ignore: prefer_const_constructors
           style: TextStyle(
             fontFamily: 'SpaceMono',
-            fontSize: 14,
-            color: Colors.white.withOpacity(0.6),
-            fontWeight: FontWeight.w700,
+            fontSize: 12,
+            color: Colors.black87,
           ),
         ),
       ),

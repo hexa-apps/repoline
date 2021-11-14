@@ -20,31 +20,33 @@ class EndChild extends StatelessWidget {
         children: [
           Text(
             data.elementAt(index).name,
-            style: TextStyle(
+            style: const TextStyle(
               fontFamily: 'SpaceMono',
-              fontSize: 16,
-              color: Colors.white.withOpacity(0.8),
+              fontSize: 14,
+              color: Colors.black87,
               fontWeight: FontWeight.w900,
             ),
           ),
           const SizedBox(height: 4),
           Text(
             'stars: ${data.elementAt(index).stargazersCount}',
+            // ignore: prefer_const_constructors
             style: TextStyle(
               fontFamily: 'SpaceMono',
-              fontSize: 16,
-              color: Colors.white.withOpacity(0.8),
+              fontSize: 12,
+              color: Colors.black87,
             ),
           ),
           const SizedBox(height: 4),
           Text(
-            'issues: ${data.elementAt(index).openIssuesCount}',
+            data.elementAt(index).description.toLowerCase(),
+            // ignore: prefer_const_constructors
             style: TextStyle(
               fontFamily: 'SpaceMono',
-              fontSize: 14,
-              color: Colors.white.withOpacity(0.6),
+              fontSize: 10,
+              color: Colors.black87,
             ),
-          )
+          ),
         ],
       ),
     );
