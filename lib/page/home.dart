@@ -60,6 +60,10 @@ class _HomePageState extends State<HomePage> {
                 cursorColor: Colors.black87,
                 controller: usernameController,
                 decoration: const InputDecoration(
+                    prefixIcon: Icon(
+                      Icons.alternate_email,
+                      color: Colors.black87,
+                    ),
                     hintStyle: TextStyle(fontFamily: 'SpaceMono'),
                     focusedBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color: Colors.black87)),
