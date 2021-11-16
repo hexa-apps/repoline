@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:repoline/component/about_listtile.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:wc_flutter_share/wc_flutter_share.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({Key? key}) : super(key: key);
@@ -21,108 +19,123 @@ class AboutPage extends StatelessWidget {
         backgroundColor: Colors.white,
         foregroundColor: Colors.black87,
       ),
-      body: ListView(
-        children: [
-          AboutPageListTile(
-              isTitle: true,
-              icon: const Icon(Icons.title),
-              content: Text(
-                'app',
+      body: Container(
+        margin: EdgeInsets.only(bottom: 12),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Flexible(
+              flex: 12,
+              child: ListView(
+                children: [
+                  AboutPageListTile(
+                      isTitle: true,
+                      icon: const Icon(Icons.title),
+                      isLaunch: false,
+                      url: '',
+                      content: 'app',
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                  AboutPageListTile(
+                      isTitle: false,
+                      icon: Icon(
+                        Icons.share,
+                        color: Colors.green[600],
+                      ),
+                      isLaunch: false,
+                      url:
+                          'https://play.google.com/store/apps/details?id=com.hexaapps.repoline',
+                      content: 'share app',
+                      fontSize: 14,
+                      fontWeight: FontWeight.normal),
+                  AboutPageListTile(
+                      isTitle: false,
+                      icon: Icon(
+                        Icons.star,
+                        color: Colors.yellow[800],
+                      ),
+                      isLaunch: true,
+                      url:
+                          'https://play.google.com/store/apps/details?id=com.hexaapps.repoline',
+                      content: 'rate app',
+                      fontSize: 14,
+                      fontWeight: FontWeight.normal),
+                  AboutPageListTile(
+                      isTitle: true,
+                      icon: const Icon(Icons.title),
+                      content: 'support',
+                      isLaunch: true,
+                      url:
+                          'https://play.google.com/store/apps/details?id=com.hexaapps.repoline',
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                  AboutPageListTile(
+                      isTitle: false,
+                      icon: Icon(
+                        Icons.email,
+                        color: Colors.blue[800],
+                      ),
+                      isLaunch: true,
+                      url: 'mailto:hexagameapps@gmail.com?subject=Repoline',
+                      content: 'email',
+                      fontSize: 14,
+                      fontWeight: FontWeight.normal),
+                  AboutPageListTile(
+                      isTitle: false,
+                      icon: Icon(
+                        Icons.flutter_dash,
+                        color: Colors.blue,
+                      ),
+                      isLaunch: true,
+                      url: 'https://twitter.com/hexaapps',
+                      content: 'twitter',
+                      fontSize: 14,
+                      fontWeight: FontWeight.normal),
+                  AboutPageListTile(
+                      isTitle: false,
+                      icon: Icon(
+                        Icons.photo_camera,
+                        color: Colors.purple,
+                      ),
+                      isLaunch: true,
+                      url: 'https://instagram.com/hexaapps',
+                      content: 'instagram',
+                      fontSize: 14,
+                      fontWeight: FontWeight.normal),
+                  AboutPageListTile(
+                      isTitle: true,
+                      icon: const Icon(Icons.title),
+                      content: 'more',
+                      isLaunch: true,
+                      url: 'https://twitter.com/hexaapps',
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                  AboutPageListTile(
+                      isTitle: false,
+                      icon: Icon(
+                        Icons.raw_on,
+                        color: Colors.indigo,
+                      ),
+                      isLaunch: true,
+                      url: 'https://reposlib.vercel.app/',
+                      content: 'original project',
+                      fontSize: 14,
+                      fontWeight: FontWeight.normal),
+                ],
+              ),
+            ),
+            Flexible(
+              flex: 1,
+              child: Text(
+                'v0.0.1',
                 style: TextStyle(
                     fontFamily: 'SpaceMono',
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold),
-              )),
-          AboutPageListTile(
-            isTitle: false,
-            icon: Icon(
-              Icons.share,
-              color: Colors.green[600],
-            ),
-            onPressed: () async {
-              try {
-                await WcFlutterShare.share(
-                    sharePopupTitle: 'Share',
-                    text:
-                        'Get awesome repository timeline app\nhttps://play.google.com/store/apps/details?id=com.hexaapps.repoline',
-                    mimeType: 'text/plain');
-              } catch (e) {
-                print('Error: $e');
-              }
-            },
-            content: Text(
-              'share app',
-              style: TextStyle(fontFamily: 'SpaceMono'),
-            ),
-          ),
-          AboutPageListTile(
-            isTitle: false,
-            icon: Icon(
-              Icons.star,
-              color: Colors.yellow[800],
-            ),
-            onPressed: () async {
-              await canLaunch(
-                      'https://play.google.com/store/apps/details?id=com.hexaapps.repoline')
-                  ? await launch(
-                      'https://play.google.com/store/apps/details?id=com.hexaapps.repoline')
-                  : throw 'Could not launch https://play.google.com/store/apps/details?id=com.hexaapps.repoline';
-            },
-            content:
-                Text('rate app', style: TextStyle(fontFamily: 'SpaceMono')),
-          ),
-          AboutPageListTile(
-              isTitle: true,
-              icon: const Icon(Icons.title),
-              content: Text(
-                'support',
-                style: TextStyle(
-                    fontFamily: 'SpaceMono',
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold),
-              )),
-          AboutPageListTile(
-            isTitle: false,
-            icon: Icon(
-              Icons.email,
-              color: Colors.blue[800],
-            ),
-            onPressed: () async {
-              await canLaunch('mailto:hexagameapps@gmail.com?subject=Repoline')
-                  ? await launch(
-                      'mailto:hexagameapps@gmail.com?subject=Repoline')
-                  : throw 'Could not launch mailto:hexagameapps@gmail.com?subject=Repoline';
-            },
-            content: Text('email', style: TextStyle(fontFamily: 'SpaceMono')),
-          ),
-          AboutPageListTile(
-            isTitle: false,
-            icon: Icon(
-              Icons.flutter_dash,
-              color: Colors.blue,
-            ),
-            onPressed: () async {
-              await canLaunch('https://twitter.com/hexaapps')
-                  ? await launch('https://twitter.com/hexaapps')
-                  : throw 'Could not launch https://twitter.com/hexaapps';
-            },
-            content: Text('twitter', style: TextStyle(fontFamily: 'SpaceMono')),
-          ),
-          AboutPageListTile(
-            isTitle: false,
-            icon: Icon(
-              Icons.photo_camera,
-              color: Colors.purple,
-            ),
-            onPressed: () async {
-              await canLaunch('https://instagram.com/hexaapps')
-                  ? await launch('https://instagram.com/hexaapps')
-                  : throw 'Could not launch https://instagram.com/hexaapps';
-            },
-            content:
-                Text('instagram', style: TextStyle(fontFamily: 'SpaceMono')),
-          ),
-        ],
+                    color: Colors.black45,
+                    fontSize: 12),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
