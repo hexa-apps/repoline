@@ -6,6 +6,8 @@ import '../core/model/repo.dart';
 import '../core/service/repo.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
+import 'about.dart';
+
 class TimeLinePage extends StatefulWidget {
   final String username;
   const TimeLinePage({Key? key, required this.username}) : super(key: key);
@@ -26,7 +28,8 @@ class _TimeLinePageState extends State<TimeLinePage> {
         title: Text(
           username,
           // ignore: prefer_const_constructors
-          style: TextStyle(fontFamily: 'SpaceMono', fontWeight: FontWeight.bold),
+          style:
+              TextStyle(fontFamily: 'SpaceMono', fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
@@ -35,7 +38,8 @@ class _TimeLinePageState extends State<TimeLinePage> {
           IconButton(
             // ignore: prefer_const_constructors
             icon: Icon(Icons.info_outline),
-            onPressed: () {},
+            onPressed: () => Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const AboutPage())),
           )
         ],
       ),

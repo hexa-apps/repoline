@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:repoline/page/about.dart';
 
 import 'timeline.dart';
 
@@ -33,7 +34,8 @@ class _HomePageState extends State<HomePage> {
           ),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const AboutPage())),
               icon: const Icon(
                 Icons.info_outline,
               ),
